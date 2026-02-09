@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neptune Documents</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="main">
+      <aside>
+        <div class="logo"><img src="logo.png" alt="" /></div>
+
+        <div class="user-dropdown-container">
+          <button id="user-btn">
+            <div class="user">
+              <img src="user.png" alt="User Avatar" />
+              <div class="user-info">
+                <div class="user-name">Jessica Thompson</div>
+                <div class="user-role">Primary User</div>
+              </div>
+              <i class="ri-arrow-down-s-line"></i>,
+            </div>
+          </button>
+
+          <div id="user-dropdown-menu" class="user-menu">
+            <div class="user-menu-item">
+              <i class="ri-user-settings-line"></i> Profile Settings
+            </div>
+            <div class="user-menu-item logout" id="logout-btn">
+              <i class="ri-logout-box-r-line"></i> Logout
+            </div>
+          </div>
+        </div>
+
+        <nav class="menu">
+          <div class="menu-item">
+            <span><img src="home.png" alt="" />Home</span>
+          </div>
+          <div class="menu-item active">
+            <span class="active"
+              ><i class="ri-file-text-line"></i>Documents</span
+            >
+          </div>
+          <div class="menu-item">
+            <span><img src="msg.png" alt="" />Chat with Neptune</span>
+          </div>
+          <div class="menu-item">
+            <span><img src="qna.png" alt="" />help</span>
+          </div>
+          <div class="menu-item">
+            <span><img src="settings.png" alt="" />settings</span>
+          </div>
+        </nav>
+
+        <div class="contact">
+          <div class="contact-icon">
+            <img src="call.svg" alt="" />
+          </div>
+          <h3>Having trouble?</h3>
+          <p>
+            Feel free to contact us and we will always help you through the
+            process.
+          </p>
+          <button>Contact us</button>
+        </div>
+      </aside>
+
+      <section id="right-section">
+        <div class="breadcrumb">
+          <a href=""><span>Home</span></a>
+          <span class="breadcrumb-separator">&gt;</span>
+          <a href=""><span>Documents</span></a>
+        </div>
+
+        <div class="nav">
+          <h1>My Documents</h1>
+          <div class="nav-right">
+            <!-- <div class="addbtn"> -->
+            <button class="add-btn" id="addDocBtn">
+              <i class="ri-add-line"></i>
+            </button>
+            <!-- </div> -->
+            <div class="search-box">
+              <input type="search" placeholder="Search documents" id="search" />
+
+              <i class="ri-search-line"></i>
+            </div>
+          </div>
+        </div>
+
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>
+                <div class="doc-name">
+                  <input type="checkbox" />
+                  <span><i class="ri-arrow-down-s-line"></i></span>
+                  <span style="color: #475569; font-weight: 600"
+                    >Document Name</span
+                  >
+                </div>
+              </th>
+              <th>Status</th>
+              <th>Last Modified</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody id="docTableBody">
+            <!-- <tr>
+              <td>
+                <div class="doc-name">
+                  <input type="checkbox" />
+                  <span>Title of Document Goes Here</span>
+                </div>
+              </td>
+              <td>
+                <div class="status-container">
+                  <span class="status-badge status-needs-signing"
+                    >Needs Signing</span
+                  >
+                </div>
+              </td>
+              <td class="last-modified">
+                10/22/2024<br />
+                2:01 pm
+              </td>
+              <td>
+                <div class="doc-action">
+                  <button class="btn">Sign now</button>
+                  <div class="menu-wrapper">
+                    <i class="ri-more-2-fill more-icon"></i>
+
+                    <div class="dropdown-menu">
+                      <p>Edit</p>
+                      <p>Delete</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="doc-name">
+                  <input type="checkbox" />
+                  <span>Title of Document Goes Here</span>
+                </div>
+              </td>
+              <td>
+                <div class="status-container">
+                  <span class="status-badge status-pending">Pending</span>
+                  <div class="waiting-text">
+                    Waiting for
+                    <div class="people">1 person</div>
+                  </div>
+                </div>
+              </td>
+              <td class="last-modified">
+                10/22/2024<br />
+                2:01 pm
+              </td>
+              <td>
+                <div class="doc-action">
+                  <button class="btn">Preview</button>
+                  <div class="menu-wrapper">
+                    <i class="ri-more-2-fill more-icon"></i>
+
+                    <div class="dropdown-menu">
+                      <p>Edit</p>
+                      <p>Delete</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="doc-name">
+                  <input type="checkbox" />
+                  <span>Title of Document Goes Here</span>
+                </div>
+              </td>
+              <td>
+                <div class="status-container">
+                  <span class="status-badge status-pending">Pending</span>
+                  <div class="waiting-text">
+                    Waiting for
+                    <div class="people">2 people</div>
+                  </div>
+                </div>
+              </td>
+              <td class="last-modified">
+                10/22/2024<br />
+                2:01 pm
+              </td>
+              <td>
+                <div class="doc-action">
+                  <button class="btn">Preview</button>
+                  <div class="menu-wrapper">
+                    <i class="ri-more-2-fill more-icon"></i>
+
+                    <div class="dropdown-menu">
+                      <p>Edit</p>
+                      <p>Delete</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="doc-name">
+                  <input type="checkbox" />
+                  <span>Title of Document Goes Here</span>
+                </div>
+              </td>
+              <td>
+                <div class="status-container">
+                  <span class="status-badge status-completed">Completed</span>
+                </div>
+              </td>
+              <td class="last-modified">
+                10/22/2024<br />
+                2:01 pm
+              </td>
+              <td>
+                <div class="doc-action">
+                  <button class="btn">Download PDF</button>
+                  <div class="menu-wrapper">
+                    <i class="ri-more-2-fill more-icon"></i>
+
+                    <div class="dropdown-menu">
+                      <p>Edit</p>
+                      <p>Delete</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="doc-name">
+                  <input type="checkbox" />
+                  <span>Title of Document Goes Here</span>
+                </div>
+              </td>
+              <td>
+                <div class="status-container">
+                  <span class="status-badge status-completed">Completed</span>
+                </div>
+              </td>
+              <td class="last-modified">
+                10/22/2024<br />
+                2:01 pm
+              </td>
+              <td>
+                <div class="doc-action">
+                  <button class="btn">Download PDF</button>
+                  <div class="menu-wrapper">
+                    <i class="ri-more-2-fill more-icon"></i>
+
+                    <div class="dropdown-menu">
+                      <p>Edit</p>
+                      <p>Delete</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="doc-name">
+                  <input type="checkbox" />
+                  <span>Title of Document Goes Here</span>
+                </div>
+              </td>
+              <td>
+                <div class="status-container">
+                  <span class="status-badge status-completed">Completed</span>
+                </div>
+              </td>
+              <td class="last-modified">
+                10/22/2024<br />
+                2:01 pm
+              </td>
+              <td>
+                <div class="doc-action">
+                  <button class="btn">Download PDF</button>
+                  <div class="menu-wrapper">
+                    <i class="ri-more-2-fill more-icon"></i>
+
+                    <div class="dropdown-menu">
+                      <p>Edit</p>
+                      <p>Delete</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+
+        <div class="box" id="addDocForm">
+          <form id="docForm">
+            <div class="form-header">
+              <h2>Add New Document</h2>
+              <p>Fill in the details to track your document status.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="docName">Document Name</label>
+              <input
+                type="text"
+                id="docName"
+                placeholder="e.g. Monthly Report"
+                class="textbox"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Select Status</label>
+              <div class="status-grid">
+                <label class="status-option">
+                  <input
+                    type="radio"
+                    name="status"
+                    value="needs-signing"
+                    required
+                  />
+                  <div class="status-card needs">
+                    <i class="ri-pen-nib-line"></i>
+                    <span>Needs Signing</span>
+                  </div>
+                </label>
+
+                <label class="status-option">
+                  <input type="radio" name="status" value="pending" />
+                  <div class="status-card pending">
+                    <i class="ri-time-line"></i>
+                    <span>Pending</span>
+                  </div>
+                </label>
+
+                <label class="status-option">
+                  <input type="radio" name="status" value="completed" />
+                  <div class="status-card completed">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <span>Completed</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div
+              id="pendingCountWrapper"
+              class="form-group animate-fade"
+              style="display: none"
+            >
+              <label for="pendingCount">Number of People Waiting for</label>
+              <div class="input-with-icon">
+                <!-- <i class="ri-group-line"></i> -->
+                <input
+                  type="number"
+                  id="pendingCount"
+                  min="1"
+                  placeholder="How many people?"
+                />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button
+                type="button"
+                class="btn-secondary"
+                onclick="closeModal()"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="submit">Create Document</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+    <div id="overlay" class="overlay"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+<!-- use emmet -->
