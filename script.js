@@ -62,7 +62,7 @@ function closeModal() {
   editingId = null;
   form.reset();
 }
-// Global Menu Toggle
+
 function toggleMenu(event, id) {
   event.stopPropagation();
   const menu = document.getElementById(`menu-${id}`);
@@ -287,9 +287,9 @@ search.addEventListener("input", () => {
   renderDocs(filteredDocs);
 });
 // localStorage.clear();
-// Toggle Menu
+
 userBtn.addEventListener("click", (e) => {
-  e.stopPropagation(); // Prevent global window click from closing it immediately
+  e.stopPropagation(); 
   userMenu.classList.toggle("active");
 });
 // Close menu when clicking outside
