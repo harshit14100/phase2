@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderDocs();
 });
 
-// Modal Controls
+
 addBtn.addEventListener("click", (e:MouseEvent) => {
   editingId = null;
   form.reset();
@@ -84,7 +84,7 @@ window.onclick = (e:MouseEvent) => {
   document.querySelectorAll<HTMLDivElement>('.dropdown-menu').forEach(m => m.classList.remove('show'));
 };
 
-// CRUD Operations
+
 
 interface Doc {
   id: number;
