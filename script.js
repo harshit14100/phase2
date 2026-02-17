@@ -250,7 +250,7 @@ function renderDocs(docsToRender = null) {
     tableBody.appendChild(row);
   });
 }
-// Safer Helpers
+
 function getStatusClass(s) {
   if (!s) return "";
   const classes = {
@@ -292,7 +292,7 @@ userBtn.addEventListener("click", (e) => {
   e.stopPropagation(); 
   userMenu.classList.toggle("active");
 });
-// Close menu when clicking outside
+
 window.addEventListener("click", () => {
   if (userMenu.classList.contains("active")) {
     userMenu.classList.remove("active");
