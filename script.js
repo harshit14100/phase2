@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   renderDocs();
 });
-// Modal Controls
+
 addBtn.addEventListener("click", (e) => {
   editingId = null;
   form.reset();
