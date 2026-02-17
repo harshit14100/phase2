@@ -1,17 +1,17 @@
-const addBtn = document.getElementById("addDocBtn") as HTMLButtonElement;
-const formBox = document.getElementById("addDocForm") as HTMLDivElement;
-const overlay = document.getElementById("overlay") as HTMLDivElement;
-const form = document.getElementById("docForm") as HTMLFormElement;
-const docNameInput = document.getElementById("docName") as HTMLInputElement;
-const tableBody = document.getElementById("docTableBody") as HTMLTableSectionElement;
-const search = document.getElementById("search") as HTMLInputElement;
-const pendingWrapper = document.getElementById("pendingCountWrapper") as HTMLDivElement;
-const pendingCountInput = document.getElementById("pendingCount") as HTMLInputElement;
+const addBtn = document.querySelector< HTMLButtonElement>("#addDocBtn");
+const formBox = document.querySelector< HTMLDivElement>("#addDocForm");
+const overlay = document.querySelector<HTMLDivElement>("#overlay");
+const form = document.querySelector<HTMLFormElement>("#docForm");
+const docNameInput = document.querySelector< HTMLInputElement>("#docName");
+const tableBody = document.querySelector< HTMLTableSectionElement>("#docTableBody");
+const search = document.querySelector<HTMLInputElement>("#search");
+const pendingWrapper = document.querySelector<HTMLDivElement>("#pendingCountWrapper");
+const pendingCountInput = document.querySelector<HTMLInputElement>("#pendingCount");
 
 
-const userBtn = document.getElementById("user-btn") as HTMLButtonElement;
-const userMenu = document.getElementById("user-dropdown-menu") as HTMLDivElement;
-const logoutBtn = document.getElementById("logout-btn") as HTMLButtonElement;
+const userBtn = document.querySelector<HTMLButtonElement>("user-btn");
+const userMenu = document.querySelector< HTMLDivElement>("user-dropdown-menu");
+const logoutBtn = document.querySelector< HTMLButtonElement>("logout-btn");
 
 let editingId : number | null = null; 
 
@@ -51,10 +51,10 @@ addBtn.addEventListener("click", (e:MouseEvent) => {
 overlay.addEventListener("click", closeModal);
 
 function closeModal() {
-  formBox.classList.remove("active");
-  overlay.classList.remove("active");
+  formBox?.classList.remove("active");
+  overlay?.classList.remove("active");
   editingId = null;
-  form.reset();
+  form?.reset();
 }
 
 
@@ -114,6 +114,7 @@ function editDoc(id: number): void {
   if (!doc) return;
 
   editingId = id;
+  if(!docNameInput) return;
   docNameInput.value = doc.name;
 
   const radio = document.querySelector<HTMLInputElement>(
@@ -123,10 +124,14 @@ function editDoc(id: number): void {
     radio.checked = true;
   }
   if (doc.status === "pending") {
+    if(!pendingWrapper) return;
     pendingWrapper.style.display = "block";
+    if(!pendingCountInput) return;
     pendingCountInput.value = String(doc.pendingCount ?? 0);
   } else {
+    if(!pendingWrapper) return;
     pendingWrapper.style.display = "none";
+    if(pendingCountInput)
     pendingCountInput.value = "";
   }
 
@@ -139,8 +144,8 @@ function editDoc(id: number): void {
     header.innerText = "Edit Document";
   }
 
-  formBox.classList.add("active");
-  overlay.classList.add("active");
+  formBox?.classList.add("active");
+  overlay?.classList.add("active");
 }
 
 form.addEventListener("submit", (e: Event): void => {
@@ -213,10 +218,11 @@ function renderDocs(docsToRender:Doc[] | null = null) {
     ? docsToRender
     : JSON.parse(localStorage.getItem("documents") || "[]");
 
+    if(!tableBody) return;
   tableBody.innerHTML = "";
 
   if (docs.length === 0) {
-    const message = search.value ? `No results for "${search.value}"` : "No documents found";
+    const message = search?.value ? `No results for "${search.value}"` : "No documents found";
     tableBody.innerHTML = `<tr><td colspan="4" style="text-align:center; padding: 40px; color: #64748b;">${message}</td></tr>`;
     return;
   }

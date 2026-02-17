@@ -27,7 +27,7 @@ if (
   !userMenu ||
   !logoutBtn
 ) {
-  throw new Error("One or more required elements are missing in the DOM.");
+  throw new Error("One or more required elements are missing in the DOM");
 }
 document.addEventListener("DOMContentLoaded", () => {
   const statusRadios = document.querySelectorAll('input[name="status"]');
