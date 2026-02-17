@@ -57,7 +57,7 @@ function closeModal() {
   form.reset();
 }
 
-// Global Menu Toggle
+
 function toggleMenu(event: MouseEvent, id : number) {
   event.stopPropagation();
   const menu = document.getElementById(`menu-${id}`) as HTMLDivElement | null;
@@ -289,7 +289,7 @@ function renderDocs(docsToRender:Doc[] | null = null) {
   });
 }
 
-// Safer Helpers
+
 function getStatusClass(s:Doc["status"]) :string { 
   if (!s) return "";
   const classes = { "needs-signing": "status-needs-signing", "pending": "status-pending", "completed": "status-completed" };
@@ -324,14 +324,14 @@ search.addEventListener("input", ():void => {
 
 // localStorage.clear();
 
-// Toggle Menu
+
 userBtn.addEventListener("click", (e) => {
   
-  e.stopPropagation(); // Prevent global window click from closing it immediately
+  e.stopPropagation(); 
   userMenu.classList.toggle("active");
 });
 
-// Close menu when clicking outside
+
 window.addEventListener("click", () => {
   if (userMenu.classList.contains("active")) {
     userMenu.classList.remove("active");
